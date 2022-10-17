@@ -74,7 +74,7 @@ def compute_data_choice_2(df):
 app.layout = html.Div(children=[ 
                                 # TASK1: Add title to the dashboard
                                 # Enter your code below. Make sure you have correct formatting.
-                                [html.H1('US Domestic Airline Flights Performance', 
+                                html.H1('US Domestic Airline Flights Performance', 
                                 style={'textAlign': 'left', 'color': '#000000',
                                 'font-size': 24}),
                                 # REVIEW2: Dropdown creation
@@ -133,7 +133,7 @@ app.layout = html.Div(children=[
                                         html.Div([ ], id='plot5')
                                 ], style={'display': 'flex'}),
                                 
-                                ]
+                                ])
 
 # Callback function definition
 # TASK4: Add 5 ouput components
@@ -165,7 +165,8 @@ app.layout = html.Div(children=[
             
             # TASK5: Average flight time by reporting airline
             # Enter your code below. Make sure you have correct formatting.
-            
+            line_fig = px.line(line_data, x='Month', y='AirTime', color='Reporting_Airline', title='Average monthly flight time (minutes) by airline')
+
             
             # Percentage of diverted airport landings per reporting airline
             pie_fig = px.pie(div_data, values='Flights', names='Reporting_Airline', title='% of flights by reporting airline')
