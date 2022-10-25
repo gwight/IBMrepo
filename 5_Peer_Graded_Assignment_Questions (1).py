@@ -151,7 +151,7 @@ app.layout = html.Div(children=[
                 State("plot5", "children")
                ])
 # Add computation to callback function and return graph
- def get_graph(chart, year, children1, children2, c3, c4, c5): 
+def get_graph(chart, year, children1, children2, c3, c4, c5): 
       
         # Select data
         df =  airline_data[airline_data['Year']==int(year)]
@@ -190,9 +190,7 @@ app.layout = html.Div(children=[
                       color='Flights',
                       color_continuous_scale='RdBu',
                       title='Flight count by airline to destination state'
-                )
-            figure_name = px.line(line_data, x='Month', y='Airtime', color='Reporting_Airline', title='Average monthly flight time (minutes) by airline')
-            
+                )            
             
             # REVIEW6: Return dcc.Graph component to the empty division
             return [dcc.Graph(figure=tree_fig), 
@@ -201,7 +199,7 @@ app.layout = html.Div(children=[
                     dcc.Graph(figure=bar_fig),
                     dcc.Graph(figure=line_fig)
                    ]
-         else:
+        else:
             # REVIEW7: This covers chart type 2 and we have completed this exercise under Flight Delay Time Statistics Dashboard section
             # Compute required information for creating graph from the data
             avg_car, avg_weather, avg_NAS, avg_sec, avg_late = compute_data_choice_2(df)
